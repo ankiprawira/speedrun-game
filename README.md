@@ -1,4 +1,4 @@
-Speedrun Game
+Spidran Game
 <br>
 Credits :
 - Anki Prawira H<br>
