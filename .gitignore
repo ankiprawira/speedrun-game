@@ -152,5 +152,12 @@ sysinfo.txt
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/[Aa]ssets/[Cc]liff/*.meta
+/[Aa]ssets/[Oo]ld_Bridge/*.meta
+/[Aa]ssets/[Pp]ictures/*.meta
+/[Aa]ssets/[Ss]cript/*.meta
+/[Aa]ssets/[Ss]cenes/*.meta
+/[Aa]ssets/[Mm]odels/*.meta
+/[Aa]ssets/[Mm]odels/Trees/*.meta
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,riderdebug.log 
