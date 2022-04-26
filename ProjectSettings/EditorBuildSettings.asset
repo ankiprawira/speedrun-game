@@ -8,28 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map1.unity
     guid: 718886cbe0592194c90b807d987c403b
-  - enabled: 1
-    path: Assets/Scenes/GameOverScene.unity
-    guid: 9228cc6c3c8e20a4f8e446247301e40a
-  - enabled: 1
-    path: Assets/Scenes/HelpScene.unity
-    guid: 2f9437323a25a1041a1d08f84782533b
-  - enabled: 1
-    path: Assets/Scenes/LeaderboardScene.unity
-    guid: 4cde26d0772a72b4e8296b12f2e7abb7
-  - enabled: 1
-    path: Assets/Scenes/LevelFinishScene.unity
-    guid: 491991ea8c034d74e965a5fe576475fb
-  - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
-    guid: 409ffce9b23211d4fa6f360adeb67c48
-  - enabled: 1
-    path: Assets/Scenes/PauseScene.unity
-    guid: 8c4c42468452b7442904f0feabb2b1b8
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/SettingsScene.unity
-    guid: 55107d3ecb6c10a4e9face8a4bb8e1da
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
