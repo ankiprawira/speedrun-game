@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 9.5f;
     public float walkSpeed = 5.5f;
     public float slideSpeed = 30f;
+    public float wallRunSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -57,18 +58,28 @@ public class PlayerMovement : MonoBehaviour
     public enum MovementState
     {
         walking,
-        sprinting, 
+        sprinting,
+        wallRunning,
         crouching,
         sliding,
         air
     }
 
     public bool sliding;
+    public bool crouching;
+    public bool wallRunning;
 
     private void StateHandler()
     {
+        // Mode - Wallrunning
+        if (wallRunning)
+        {
+            state = MovementState.wallRunning;
+            desiredMoveSpeed = wallRunSpeed;
+        }
+
         // Mode - Sliding
-        if (sliding)
+        else if (sliding)
         {
             state = MovementState.sliding;
 
@@ -80,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Mode - Crouching
-        else if (Input.GetKey(crouchKey))
+        else if (crouching)
         {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
@@ -195,6 +206,8 @@ public class PlayerMovement : MonoBehaviour
         // start crouching
         if (Input.GetKey(crouchKey) && grounded)
         {
+            crouching = true;
+
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 0.25f, ForceMode.Impulse);
         }
@@ -203,6 +216,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+
+            crouching = false;
         }
     }
     

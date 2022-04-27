@@ -11,7 +11,7 @@ public class Sliding : MonoBehaviour
     private PlayerMovement pm;
 
     [Header("Sliding")]
-    public float maxSlideTime = 0.75f;
+    public float maxSlideTime = 0.5f;
     public float slideForce = 200f;
     private float slideTimer;
 
@@ -54,7 +54,7 @@ public class Sliding : MonoBehaviour
         pm.sliding = true;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
-        rb.AddForce(Vector3.down * 200f, ForceMode.Impulse);
+        rb.AddForce(Vector3.down * 250f, ForceMode.Impulse);
 
         slideTimer = maxSlideTime;
     }
