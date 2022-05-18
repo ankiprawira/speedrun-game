@@ -165,6 +165,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        TimerController.instance.BeginTimer();
+
         ResetJump();
 
         startYScale = transform.localScale.y;
