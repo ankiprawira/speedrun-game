@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 6.9f;
     public float jumpCooldown = 0.5f;
     public float airMultiplier = 0.75f;
-    public bool readyToJump = true;
+    bool readyToJump;
 
     [Header("Crouching")]
     public float crouchSpeed = 3.5f;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 moveDirection;
 
-    public Rigidbody rb;
+    Rigidbody rb;
 
     public MovementState state;
     public enum MovementState
