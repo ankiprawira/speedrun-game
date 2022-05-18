@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 6.9f;
     public float jumpCooldown = 0.5f;
     public float airMultiplier = 0.75f;
-    bool readyToJump;
+    public bool readyToJump = true;
 
     [Header("Crouching")]
     public float crouchSpeed = 3.5f;
@@ -165,8 +165,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        TimerController.instance.BeginTimer();
-
         ResetJump();
 
         startYScale = transform.localScale.y;
@@ -230,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("PauseScene");
         }
     }
-    
+
     private void MovePlayer()
     {
         // calculate movement direction
