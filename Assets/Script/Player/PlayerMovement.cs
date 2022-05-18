@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 6.9f;
     public float jumpCooldown = 0.5f;
     public float airMultiplier = 0.75f;
-    bool readyToJump;
+    public bool readyToJump = true;
 
     [Header("Crouching")]
     public float crouchSpeed = 3.5f;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode walkKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
+    public KeyCode pauseKey = KeyCode.Escape;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 moveDirection;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     public MovementState state;
     public enum MovementState
@@ -163,6 +165,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        TimerController.instance.BeginTimer();
+
         ResetJump();
 
         startYScale = transform.localScale.y;
@@ -218,6 +222,12 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
 
             crouching = false;
+        }
+
+        // pause game
+        if (Input.GetKey(pauseKey))
+        {
+            SceneManager.LoadScene("PauseScene");
         }
     }
     
