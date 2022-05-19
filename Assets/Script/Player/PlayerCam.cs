@@ -45,4 +45,13 @@ public class PlayerCam : MonoBehaviour
     {
         transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
     }
+
+    private void DisableMouseLook(bool enable)
+    {
+        GameObject FPC = GameObject.FindWithTag("Player");
+
+        FPC.transform.GetComponent<PlayerMovement>().enabled = enable;
+        FPC.transform.GetComponent<PlayerCam>().enabled = enable;
+        Camera.main.GetComponent<PlayerCam>().enabled = enable;
+    }
 }
