@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCheckpoint : MonoBehaviour
 {
     public GameObject flag;
-    private PlayerMovement pm;
     private Rigidbody rb;
     Vector3 spawnPoint;
 
@@ -13,7 +12,6 @@ public class PlayerCheckpoint : MonoBehaviour
     void Start()
     {
         spawnPoint = gameObject.transform.position;
-        pm.readyToJump = true;
     }
 
     // Update is called once per frame
@@ -37,6 +35,6 @@ public class PlayerCheckpoint : MonoBehaviour
     public void Respawn()
     {
         gameObject.transform.position = spawnPoint;
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        // rb.velocity = new Vector3(0f, 0f, 0f);
     }
 }

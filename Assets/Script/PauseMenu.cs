@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public static bool gamePaused = false;
     public GameObject pauseMenuUI;
 
+    private readonly PlayerCheckpoint pc;
+
     // Update is called once per frame
     void Update()
     {
@@ -41,9 +43,9 @@ public class PauseMenu : MonoBehaviour
         gamePaused = true;
     }
 
-    public void Retry()
+    public void SpawnLastCheckpoint()
     {
-        Debug.Log("Retry...");
+        
     }
 
     public void BackToMain()
