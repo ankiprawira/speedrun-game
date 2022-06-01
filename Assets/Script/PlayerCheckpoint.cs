@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCheckpoint : MonoBehaviour
 {
-    public GameObject flag;
+    private GameObject flag;
     private Rigidbody rb;
     Vector3 spawnPoint;
 
@@ -27,11 +28,15 @@ public class PlayerCheckpoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Checkpoint"))
         {
-            spawnPoint = flag.transform.position;
+            flag = other.gameObject;
+            spawnPoint = other.transform.position;
             Destroy(flag);
         } else if (other.gameObject.CompareTag("Deathpoint"))
         {
             Respawn();
+        } else if (other.gameObject.CompareTag("Finishpoint"))
+        {
+            SceneManager.LoadScene("LevelFinishScene");
         }
     }
 
