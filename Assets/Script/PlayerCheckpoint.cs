@@ -29,6 +29,9 @@ public class PlayerCheckpoint : MonoBehaviour
         {
             spawnPoint = flag.transform.position;
             Destroy(flag);
+        } else if (other.gameObject.CompareTag("Deathpoint"))
+        {
+            Respawn();
         }
     }
 
