@@ -46,6 +46,11 @@ public class TimerController : MonoBehaviour
         timerOn = false;
     }
 
+    public TimeSpan GetLastTimer()
+    {
+        return timePlaying;
+    }
+
     private IEnumerator UpdateTimer()
     {
         while (timerOn)

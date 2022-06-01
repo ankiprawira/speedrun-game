@@ -43,11 +43,6 @@ public class PauseMenu : MonoBehaviour
         gamePaused = true;
     }
 
-    public void SpawnLastCheckpoint()
-    {
-        
-    }
-
     public void BackToMain()
     {
         SceneManager.LoadScene("MainMenuScene");

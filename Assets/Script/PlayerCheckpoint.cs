@@ -12,6 +12,7 @@ public class PlayerCheckpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TimerController.instance.BeginTimer();
         spawnPoint = gameObject.transform.position;
     }
 
@@ -36,6 +37,7 @@ public class PlayerCheckpoint : MonoBehaviour
             Respawn();
         } else if (other.gameObject.CompareTag("Finishpoint"))
         {
+            TimerController.instance.EndTimer();
             SceneManager.LoadScene("LevelFinishScene");
         }
     }
