@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxSlopeAngle = 40f;
     private RaycastHit slopeHit;
     private bool exitingSlope;
+    public static bool isDisableInput = false;
 
     public Transform orientation;
 
@@ -192,33 +193,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        // Jumping
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (!isDisableInput)
         {
-            readyToJump = false;
-            Jump();
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
 
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
+            // Jumping
+            if (Input.GetKey(jumpKey) && readyToJump && grounded)
+            {
+                readyToJump = false;
+                Jump();
 
-        // start crouching
-        if (Input.GetKey(crouchKey) && grounded)
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+
+            // start crouching
+            if (Input.GetKey(crouchKey) && grounded)
+            {
+                crouching = true;
+
+                transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+                rb.AddForce(Vector3.down * 0.25f, ForceMode.Impulse);
+            }
+
+            // stop crouching
+            if (Input.GetKeyUp(crouchKey))
+            {
+                transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+
+                crouching = false;
+            }
+        } else
         {
-            crouching = true;
 
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 0.25f, ForceMode.Impulse);
-        }
-
-        // stop crouching
-        if (Input.GetKeyUp(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-
-            crouching = false;
         }
     }
 

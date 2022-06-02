@@ -11,7 +11,7 @@ public class TimerController : MonoBehaviour
 
     public TextMeshProUGUI timeCounter;
 
-    private TimeSpan timePlaying;
+    private TimeSpan timePlaying = TimeSpan.FromSeconds(3600);
     private bool timerOn;
 
     private float elapsedTime;
